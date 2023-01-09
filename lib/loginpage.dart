@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
+import 'main.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -82,14 +83,32 @@ class _LoginPageState extends State<LoginPage> {
       var val = {loginid:token};
       var value = json.encode(val);
       await storage.write( key: 'login', value: value );
-      // var storagevalue = storage.read(key: 'login');
-      // print(storagevalue);
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(builder: (context) => MainPage()),
-      // );
+      var storagevalue = storage.read(key: 'login');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MainPage()),
+      );
     } else {
       print(responseJson['message']);
+      showDialog(
+          context: context,
+          barrierDismissible: true,
+          builder: (BuildContext context){
+            return AlertDialog(
+              title: Text('로그인에 실패하였습니다.'),
+              content: Text('아이디와 비밀번호를 다시 입력해주십시오'),
+              actions: [
+                TextButton(onPressed: (){
+                  Navigator.pop(context);
+                }, child: Text('확인')),
+              ],
+            );
+          },
+      );
     }
   }
+}
+
+class Auth{
+
 }
