@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             TextFormField(
-              decoration: InputDecoration(labelText: 'ID'),
+              decoration: InputDecoration(labelText: '아이디'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your ID';
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
               onSaved: (value) => _id = value ?? 'null',
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: 'Password'),
+              decoration: InputDecoration(labelText: '패스워드'),
               obscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             TextButton(
                 onPressed: _submit,
-                child: Text('Submit')
+                child: Text('보내기')
             ),
           ],
         ),
@@ -110,5 +110,5 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class Auth{
-
+  
 }
