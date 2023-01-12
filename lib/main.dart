@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:farm/SensorPage.dart';
 import 'package:farm/loginpage.dart';
+import 'package:farm/GroundPage.Dart.dart';
 
 void main() {
   runApp(MyApp());
@@ -136,14 +137,7 @@ class EnvironmentPage extends StatelessWidget {
     });
   }
 }
-class GroundPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text('This is the GroundPage'),
-    );
-  }
-}
+
 class CCTVPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

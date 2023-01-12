@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
+import 'package:intl/intl.dart';
 
 class SensorPage extends StatefulWidget {
   const SensorPage({super.key});
@@ -21,10 +22,6 @@ class _SensorPageState extends State<SensorPage> {
     if (response.statusCode == 200) {
       var jsonResponse =
       convert.jsonDecode(response.body);
-      // var itemCount = jsonResponse['totalItems'];
-      print('Number of books about http: ${jsonResponse[0][0][0]}.');
-      print('Number of books about http: ${jsonResponse[1][0][0]}.');
-      print('Number of books about http: ${jsonResponse[2][0][0]}.');
 
       temperature = int.parse(jsonResponse[0][0][0].toString());
       humidity = int.parse(jsonResponse[1][0][0].toString());
